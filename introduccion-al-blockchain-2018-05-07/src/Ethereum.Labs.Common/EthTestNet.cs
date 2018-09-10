@@ -10,9 +10,9 @@ namespace Ethereum.Labs.Common
 {
     public static class EthTestNet
     {
-        public const string TESTNET_URL = "http://10.4.0.5:8545";
-        public const string PREFUNDED_ACCOUNT_ADDRESS = "3e5e985ab7629d74926e73de46e85995b97e2e60";
-        public const string PREFUNDED_ACCOUNT_PASSWORD = "1234";
+        public const string TESTNET_URL = "http://10.4.0.4:8545";
+        public const string PREFUNDED_ACCOUNT_ADDRESS = "0xbf27449A7362199C98115E1A31ee219c2eA690C1";
+        public const string PREFUNDED_ACCOUNT_PASSWORD = "sab-eth1007";
 
         public static async Task<IAccount> GetPrefundedAccountAsync()
         {
@@ -22,7 +22,7 @@ namespace Ethereum.Labs.Common
             var prefundedAccountPassword = PREFUNDED_ACCOUNT_PASSWORD;
             var prefundedAccount = new ManagedAccount(prefundedAccountAddress, prefundedAccountPassword);
 
-            if (!await web3.Personal.UnlockAccount.SendRequestAsync(prefundedAccount.Address, prefundedAccountPassword, (int?)null))
+            if (!await web3.Personal.UnlockAccount.SendRequestAsync(prefundedAccount.Address, prefundedAccountPassword, (ulong?)null))
             {
                 throw new Exception("Unable to unlock account.");
             }

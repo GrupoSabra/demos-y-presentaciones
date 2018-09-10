@@ -23,7 +23,7 @@ namespace Ethereum.Labs.Lab1
             var prefundedAccountPassword = EthTestNet.PREFUNDED_ACCOUNT_PASSWORD;
             var prefundedAccount = new ManagedAccount(prefundedAccountAddress, prefundedAccountPassword);
 
-            Assert.True(await web3.Personal.UnlockAccount.SendRequestAsync(prefundedAccount.Address, prefundedAccountPassword, (int?)null));
+            Assert.True(await web3.Personal.UnlockAccount.SendRequestAsync(prefundedAccount.Address, prefundedAccountPassword, (ulong?)null));
         }
 
         [Fact]
